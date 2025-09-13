@@ -115,6 +115,14 @@
             justify-content: center;
             padding: 5rem 1rem;
         }
+
+        .interactive-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(52, 211, 153, 0.3);
+        }
     </style>
 </head>
 <body class="relative">
@@ -156,19 +164,19 @@
                 <h2 class="text-4xl mb-6 text-center">Pendahuluan: Paradoks di Balik Progres</h2>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 text-center">
-                    <div class="bg-slate-900/50 p-4 rounded-lg border border-slate-700">
+                    <div class="bg-slate-900/50 p-4 rounded-lg border border-slate-700 interactive-card">
                         <p class="text-2xl md:text-3xl font-bold text-emerald-400">55,14%</p>
                         <p class="text-xs md:text-sm text-slate-400 mt-1">Penurunan Jatim (2018-2024)</p>
                     </div>
-                    <div class="bg-slate-900/50 p-4 rounded-lg border border-slate-700">
+                    <div class="bg-slate-900/50 p-4 rounded-lg border border-slate-700 interactive-card">
                         <p class="text-2xl md:text-3xl font-bold text-white">14,7%</p>
                         <p class="text-xs md:text-sm text-slate-400 mt-1">Prevalensi Jatim 2024</p>
                     </div>
-                    <div class="bg-slate-900/50 p-4 rounded-lg border border-slate-700">
+                    <div class="bg-slate-900/50 p-4 rounded-lg border border-slate-700 interactive-card">
                         <p class="text-2xl md:text-3xl font-bold text-red-400">30,4%</p>
                         <p class="text-xs md:text-sm text-slate-400 mt-1">Kasus Tertinggi (Bondowoso)</p>
                     </div>
-                    <div class="bg-slate-900/50 p-4 rounded-lg border border-slate-700">
+                    <div class="bg-slate-900/50 p-4 rounded-lg border border-slate-700 interactive-card">
                         <p class="text-2xl md:text-3xl font-bold text-green-400">4,1%</p>
                         <p class="text-xs md:text-sm text-slate-400 mt-1">Kasus Terendah (Sampang)</p>
                     </div>
@@ -177,7 +185,7 @@
                 <p class="text-lg text-slate-300 mb-8 text-center max-w-3xl mx-auto">
                     Jawa Timur berhasil menekan angka stunting secara signifikan. Namun, data ini mengungkap <strong class="text-white">disparitas geografis</strong> yang tajam, sebuah tantangan tersembunyi yang membutuhkan solusi presisi.
                 </p>
-                <img src="https://raw.githubusercontent.com/fazelahmd/Sigap/main/1_Peta_Prevalensi_Stunting_2024_AbbottRed_Labeled.jpg" 
+                <img src="https://raw.githubusercontent.com/fazelahmd/Sigap/main/1_Peta_Prevalensi_Stunting_2024_AbbottRed_Labeled.jpeg" 
                      alt="Peta Prevalensi Stunting di Jawa Timur 2024" 
                      class="rounded-lg shadow-2xl w-full"
                      onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend', '<div class=\'text-center text-slate-400 p-8 bg-slate-800 rounded-lg\'>Gagal memuat peta dari GitHub. Pastikan tautan benar dan dapat diakses.</div>')">
@@ -191,15 +199,15 @@
                     SIGAP bekerja dengan menggabungkan tiga komponen penilaian untuk menghasilkan Skor Risiko yang komprehensif: tingkat prevalensi saat ini, analisis tren historis, dan penalti untuk kelengkapan data.
                 </p>
                 <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-slate-900 p-4 rounded-lg text-center border border-slate-700">
+                    <div class="bg-slate-900 p-4 rounded-lg text-center border border-slate-700 interactive-card">
                         <h3 class="font-bold text-lg mb-2 text-emerald-400">Komponen 1</h3>
                         <p class="text-sm text-slate-400">Skor Tingkat Stunting</p>
                     </div>
-                     <div class="bg-slate-900 p-4 rounded-lg text-center border border-slate-700">
+                     <div class="bg-slate-900 p-4 rounded-lg text-center border border-slate-700 interactive-card">
                         <h3 class="font-bold text-lg mb-2 text-emerald-400">Komponen 2</h3>
                         <p class="text-sm text-slate-400">Skor Analisis Tren</p>
                     </div>
-                     <div class="bg-slate-900 p-4 rounded-lg text-center border border-slate-700">
+                     <div class="bg-slate-900 p-4 rounded-lg text-center border border-slate-700 interactive-card">
                         <h3 class="font-bold text-lg mb-2 text-emerald-400">Komponen 3</h3>
                         <p class="text-sm text-slate-400">Penalti Kelengkapan Data</p>
                     </div>
@@ -213,7 +221,7 @@
                 <p class="text-lg text-slate-300 mb-8 text-center max-w-3xl mx-auto">
                     Analisis SIGAP menghasilkan peta tindakan yang mengarahkan prioritas intervensi ke wilayah yang paling membutuhkan, dari Kritis hingga Sukses.
                 </p>
-                <img src="https://raw.githubusercontent.com/fazelahmd/Sigap/main/2_Peta_Risiko_SIGAP_AbbottRed_Labeled.jpg" 
+                <img src="https://raw.githubusercontent.com/fazelahmd/Sigap/main/2_Peta_Risiko_SIGAP_AbbottRed_Labeled.jpeg" 
                      alt="Peta Kategorisasi Risiko SIGAP di Jawa Timur" 
                      class="rounded-lg shadow-lg w-full"
                      onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend', '<div class=\'text-center text-slate-400 p-8 bg-slate-800 rounded-lg\'>Gagal memuat peta dari GitHub. Pastikan tautan benar dan dapat diakses.</div>')">
@@ -292,8 +300,8 @@
             document.querySelectorAll('.section').forEach(sec => observer.observe(sec));
 
             // --- Charts ---
-            const chartTextColor = '#1f2937'; // Gray-800
-            const chartGridColor = '#e5e7eb'; // Gray-200
+            const chartTextColor = '#e2e8f0'; // Light text for dark background
+            const chartGridColor = 'rgba(255, 255, 255, 0.1)';
 
             // Trend Line Chart
             const trendCtx = document.getElementById('trendLineChart');
@@ -316,25 +324,27 @@
                     borderColor: '#34d399',
                     borderWidth: 3, pointRadius: 0, tension: 0.1, borderDash: [5, 5],
                 });
-                new Chart(trendCtx, { type: 'line', data: { labels: years, datasets }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#e2e8f0' } }, y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#e2e8f0' }, title: { display: true, text: 'Prevalensi Stunting (%)', color: '#e2e8f0' } } } } });
+                new Chart(trendCtx, { type: 'line', data: { labels: years, datasets }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { color: chartGridColor }, ticks: { color: chartTextColor } }, y: { grid: { color: chartGridColor }, ticks: { color: chartTextColor }, title: { display: true, text: 'Prevalensi Stunting (%)', color: chartTextColor } } } } });
             }
 
             // --- Bar Chart (Replicated Style) ---
             const categoryCtx = document.getElementById('categoryBarChart');
             if (categoryCtx) {
+                const chartTextColorDark = '#1f2937';
+                const chartGridColorLight = '#e5e7eb';
                 const categoryLabels = ['Kritis', 'Tinggi', 'Membaik'];
-                const categoryData = [7, 15, 16]; // Corrected data as per user request
+                const categoryData = [7, 15, 16];
                 const riskColors = { KRITIS: '#dc2626', TINGGI: '#f87171', MEMBAIK: '#fca5a5' };
                 
                 new Chart(categoryCtx, { type: 'bar', data: { labels: categoryLabels, datasets: [{ label: 'Jumlah Wilayah', data: categoryData, backgroundColor: categoryLabels.map(l => riskColors[l.toUpperCase()]) }] }, 
                     options: { responsive: true, maintainAspectRatio: false, 
                         plugins: { 
                             legend: { display: false },
-                            title: { display: true, text: 'Distribusi Wilayah Berdasarkan Kategori Risiko SIGAP', color: chartTextColor, font: { size: 14, weight: 'bold' } }
+                            title: { display: true, text: 'Distribusi Wilayah Berdasarkan Kategori Risiko SIGAP', color: chartTextColorDark, font: { size: 14, weight: 'bold' } }
                         }, 
                         scales: { 
-                            x: { grid: { display: false }, ticks: { color: chartTextColor }, title: { display: true, text: 'Kategori Risiko SIGAP', color: chartTextColor } }, 
-                            y: { grid: { color: chartGridColor }, ticks: { color: chartTextColor }, title: { display: true, text: 'Jumlah Kabupaten/Kota', color: chartTextColor } } 
+                            x: { grid: { display: false }, ticks: { color: chartTextColorDark }, title: { display: true, text: 'Kategori Risiko SIGAP', color: chartTextColorDark } }, 
+                            y: { grid: { color: chartGridColorLight }, ticks: { color: chartTextColorDark }, title: { display: true, text: 'Jumlah Kabupaten/Kota', color: chartTextColorDark } } 
                         } 
                     } 
                 });
@@ -343,15 +353,14 @@
             // --- Scatter Plot (Replicated Style) ---
             const scatterCtx = document.getElementById('correlationScatterPlot');
             if (scatterCtx) {
-                // Remapping CSV categories to user-defined categories
+                const chartTextColorDark = '#1f2937';
+                const chartGridColorLight = '#e5e7eb';
+
                 const remapCategory = (data) => {
-                    // Specific override for Bondowoso
-                    if (data.nama_wilayah === 'Bondowoso') return 'KRITIS';
-                    
+                    if (data.nama_wilayah === 'Bondowoso' || data.stunting_2024 > 25) return 'KRITIS';
                     const score = data.sigap_total_score;
-                    if (score >= 60) return 'TINGGI'; // Example threshold
-                    if (score >= 40) return 'MEMBAIK'; // Example threshold
-                    return 'SUKSES'; // Default to a category not in the legend if needed
+                    if (score >= 50) return 'TINGGI';
+                    return 'MEMBAIK';
                 };
 
                 const plotRiskColors = { KRITIS: '#b91c1c', TINGGI: '#ef4444', MEMBAIK: '#f87171' };
@@ -380,12 +389,12 @@
                     options: { 
                         responsive: true, maintainAspectRatio: false, 
                         plugins: { 
-                            legend: { position: 'bottom', labels: { color: chartTextColor, usePointStyle: true } },
-                            title: { display: true, text: 'Korelasi Skor Risiko vs Prevalensi Stunting 2024', color: chartTextColor, font: { size: 14, weight: 'bold' } }
+                            legend: { position: 'bottom', labels: { color: chartTextColorDark, usePointStyle: true } },
+                            title: { display: true, text: 'Korelasi Skor Risiko vs Prevalensi Stunting 2024', color: chartTextColorDark, font: { size: 14, weight: 'bold' } }
                         }, 
                         scales: { 
-                            x: { grid: { color: chartGridColor }, ticks: { color: chartTextColor }, title: { display: true, text: 'Skor Total Risiko SIGAP', color: chartTextColor, font: { weight: 'bold' } } }, 
-                            y: { min: 0, grid: { color: chartGridColor }, ticks: { color: chartTextColor }, title: { display: true, text: 'Prevalensi Stunting 2024 (%)', color: chartTextColor, font: { weight: 'bold' } } } 
+                            x: { grid: { color: chartGridColorLight }, ticks: { color: chartTextColorDark }, title: { display: true, text: 'Skor Total Risiko SIGAP', color: chartTextColorDark, font: { weight: 'bold' } } }, 
+                            y: { min: 0, grid: { color: chartGridColorLight }, ticks: { color: chartTextColorDark }, title: { display: true, text: 'Prevalensi Stunting 2024 (%)', color: chartTextColorDark, font: { weight: 'bold' } } } 
                         } 
                     } 
                 });
