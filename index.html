@@ -71,6 +71,8 @@
         }
 
         .content-container {
+            width: 100%;
+            max-width: 896px; /* max-w-4xl */
             border: 1px solid rgba(255, 255, 255, 0.1);
             background: rgba(2, 6, 23, 0.6);
             backdrop-filter: blur(12px);
@@ -107,10 +109,11 @@
         }
         
         .section {
-            padding: 8rem 1rem 5rem 1rem;
-            min-height: 95vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
+            justify-content: center;
+            padding: 5rem 1rem;
         }
     </style>
 </head>
@@ -119,7 +122,7 @@
     <div class="aurora-bg"></div>
 
     <nav class="navbar" id="navbar">
-        <div class="container mx-auto max-w-5xl px-4">
+        <div class="container mx-auto max-w-6xl px-4">
             <div class="flex items-center justify-between h-20">
                 <div class="text-2xl font-bold text-white tracking-wider">
                     <a href="#"><span class="text-emerald-400">SI</span>GAP</a>
@@ -134,7 +137,7 @@
         </div>
     </nav>
 
-    <main class="container mx-auto max-w-4xl">
+    <main>
         <header class="text-center min-h-screen flex flex-col justify-center items-center px-4">
             <div>
                 <h1 class="text-6xl md:text-8xl font-extrabold tracking-tight text-gradient-brand">SIGAP</h1>
@@ -149,7 +152,7 @@
         </header>
 
         <section class="section" id="section-problem">
-            <div class="content-container w-full">
+            <div class="content-container">
                 <h2 class="text-4xl mb-6 text-center">Pendahuluan: Paradoks di Balik Progres</h2>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 text-center">
@@ -182,7 +185,7 @@
         </section>
 
         <section class="section" id="section-method">
-            <div class="content-container w-full">
+            <div class="content-container">
                  <h2 class="text-4xl mb-6 text-center">Metodologi: Mesin di Balik SIGAP</h2>
                 <p class="text-lg text-slate-300 mb-8 text-center max-w-3xl mx-auto">
                     SIGAP bekerja dengan menggabungkan tiga komponen penilaian untuk menghasilkan Skor Risiko yang komprehensif: tingkat prevalensi saat ini, analisis tren historis, dan penalti untuk kelengkapan data.
@@ -205,7 +208,7 @@
         </section>
         
         <section class="section" id="section-results-map">
-            <div class="content-container w-full">
+            <div class="content-container">
                 <h2 class="text-4xl mb-6 text-center">Hasil: Peta Risiko SIGAP</h2>
                 <p class="text-lg text-slate-300 mb-8 text-center max-w-3xl mx-auto">
                     Analisis SIGAP menghasilkan peta tindakan yang mengarahkan prioritas intervensi ke wilayah yang paling membutuhkan, dari Kritis hingga Sukses.
@@ -218,7 +221,7 @@
         </section>
 
         <section class="section" id="section-results-trend">
-            <div class="content-container w-full">
+            <div class="content-container">
                 <h2 class="text-4xl mb-6 text-center">Hasil: Dinamika Penurunan Stunting</h2>
                 <p class="text-lg text-slate-300 mb-8 text-center max-w-3xl mx-auto">
                     Grafik ini menunjukkan perjalanan penurunan prevalensi stunting (2018-2024). Garis <strong class="highlight">hijau putus-putus</strong> adalah rata-rata provinsi yang turun drastis, sementara garis abu-abu adalah jejak unik setiap daerah.
@@ -228,7 +231,7 @@
         </section>
 
         <section class="section" id="section-results-distribution">
-            <div class="content-container w-full">
+            <div class="content-container">
                 <h2 class="text-4xl mb-6 text-center">Hasil: Distribusi Kategori Risiko</h2>
                 <p class="text-lg text-slate-300 mb-8 text-center max-w-3xl mx-auto">
                     Mayoritas wilayah berada di jalur yang positif. Grafik ini memvisualisasikan sebaran 38 kabupaten/kota sesuai dengan kategori dan data yang Anda berikan.
@@ -240,7 +243,7 @@
         </section>
 
         <section class="section" id="section-results-validation">
-            <div class="content-container w-full">
+            <div class="content-container">
                 <h2 class="text-4xl mb-6 text-center">Hasil: Validasi Model ($r=0,84$)</h2>
                 <p class="text-lg text-slate-300 mb-8 text-center max-w-3xl mx-auto">
                     Dengan akurasi 89,5%, model SIGAP terbukti andal. Grafik korelasi ini menunjukkan hubungan kuat antara Skor Risiko dengan prevalensi stunting aktual di lapangan.
@@ -252,7 +255,7 @@
         </section>
 
         <section class="section" id="section-conclusion">
-            <div class="content-container text-center w-full">
+            <div class="content-container text-center">
                  <h2 class="text-4xl mb-6">Kesimpulan: Kompas Kebijakan</h2>
                 <p class="text-lg text-slate-300 max-w-3xl mx-auto">
                     SIGAP adalah alat bantu strategis berbasis bukti untuk menargetkan intervensi, mengoptimalkan anggaran, dan mereplikasi keberhasilan demi masa depan Generasi Emas Indonesia.
