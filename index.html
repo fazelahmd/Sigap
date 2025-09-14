@@ -4,371 +4,579 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIGAP - Laporan Inovatif oleh Open Synthesis</title>
-
-    <!-- Frameworks & Libraries -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-
-    <!-- Custom Styles -->
+    <!--
+    TemplateMo 594 nexus flow
+    https://templatemo.com/tm-594-nexus-flow
+    -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-        
+        /*
+        TemplateMo 594 nexus flow
+        https://templatemo.com/tm-594-nexus-flow
+        */
+
+        @charset "utf-8";
+        /* CSS Document */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-grey: #e5e7eb;
+            --primary-orange: #f97316;
+            --primary-purple: #7c3aed;
+            --secondary-amber: #fbbf24;
+            --dark-bg: #1a0b2e;
+            --darker-bg: #0f051a;
+            --card-bg: rgba(229, 231, 235, 0.03);
+            --border-color: rgba(229, 231, 235, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --primary-cyan: #00ffff;
+            --primary-pink: #ff00ff;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #334155;
-            position: relative;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            background: var(--darker-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
+        /* Enhanced Cyberpunk Background */
+        .cyber-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker-bg);
+            overflow: hidden;
+            z-index: -5;
         }
 
-        a {
-            color: #10b981;
-            transition: all 0.3s ease;
-        }
-        a:hover, a:focus {
-            color: #059669;
-            text-decoration: none;
-        }
-
-        .section {
-            padding: 100px 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        .section-header h2 {
-            font-size: 42px;
-            font-weight: 800;
-            color: #0f172a;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .section-header p {
-            color: #64748b;
-            font-size: 16px;
-            max-width: 700px;
-            margin: 15px auto 0;
+        /* Animated gradient background */
+        .cyber-gradient {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 60% 20%, rgba(249, 115, 22, 0.15) 0%, transparent 50%);
+            animation: gradientRotate 30s linear infinite;
+            filter: blur(40px);
         }
 
-        #header {
-            background: #f8fafc;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding-top: 80px; /* space for navbar */
+        @keyframes gradientRotate {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
         }
-        #header h1 {
-            font-size: 80px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, #10b981, #3b82f6);
+
+        /* Matrix rain effect */
+        .matrix-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.15;
+        }
+
+        .matrix-column {
+            position: absolute;
+            top: -100vh;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: var(--primary-cyan);
+            text-shadow: 0 0 5px var(--primary-cyan);
+            animation: matrixFall linear infinite;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            background: linear-gradient(to bottom, transparent 0%, var(--primary-cyan) 50%, transparent 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        #header p {
-            color: #475569;
-            font-size: 20px;
-            margin-top: 20px;
-            font-weight: 500;
-        }
-        
-        .navbar-custom {
-            background: rgba(255,255,255,0.9);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            -webkit-backdrop-filter: blur(8px);
-            backdrop-filter: blur(8px);
-            padding: 10px 0;
-            border: none;
-        }
-        .navbar-custom .navbar-brand {
-            font-size: 24px;
-            font-weight: 800;
-            color: #0f172a !important;
-        }
-        .navbar-custom .navbar-brand span {
-            color: #10b981;
-        }
-        .navbar-custom .nav li a {
-            color: #475569;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 14px;
-        }
-        .navbar-custom .nav li a:hover,
-        .navbar-custom .nav li.active a {
-            color: #0f172a;
-            background: transparent;
-        }
-        
-        .stat-card {
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-        .stat-card .stat-number {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 5px;
-        }
-        .stat-card .stat-label {
-            font-size: 14px;
-            color: #64748b;
+
+        @keyframes matrixFall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(200vh); }
         }
 
-        .method-card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
+        /* Animated grid overlay */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
         }
-        .method-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+
+        .grid-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
         }
-        .method-card h3 {
-            color: #10b981;
-            font-size: 20px;
-            margin-top: 0;
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -3;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary-cyan);
+            animation: float 20s infinite;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+
+        /* Glowing orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: orbFloat 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -4;
+        }
+        .orb1 { width: 300px; height: 300px; background: var(--primary-cyan); top: 10%; left: -150px; }
+        .orb2 { width: 400px; height: 400px; background: var(--primary-pink); bottom: 10%; right: -200px; animation-delay: 5s; }
+        .orb3 { width: 250px; height: 250px; background: var(--primary-purple); top: 50%; left: 50%; animation-delay: 10s; }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, -50px) scale(1.1); }
+            66% { transform: translate(-50px, 100px) scale(0.9); }
+        }
+
+        /* Scanlines & Noise */
+        .scanlines::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(transparent 0%, rgba(0, 255, 255, 0.03) 50%, transparent 100%); background-size: 100% 4px; animation: scanline 8s linear infinite; }
+        .scanlines::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%); pointer-events: none; }
+        .noise-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.03; z-index: -1; pointer-events: none; background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px), repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(0, 255, 255, 0.02) 2px, rgba(0, 255, 255, 0.02) 4px); }
+        @keyframes scanline { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
+
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; padding: 1rem 2rem; background: rgba(15, 15, 35, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-color); z-index: 10000; transition: all 0.3s ease; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: var(--primary-cyan); text-shadow: 0 0 20px var(--primary-cyan); text-decoration: none; transition: all 0.3s ease; }
+        .logo:hover { text-shadow: 0 0 30px var(--primary-cyan); transform: scale(1.05); }
+        .logo::before { content: '>'; margin-right: 0.5rem; color: var(--primary-orange); }
+        .logo::after { content: '_'; animation: blink 1s infinite; }
+        @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+        .nav-links { display: flex; list-style: none; gap: 2.5rem; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; transition: all 0.3s ease; position: relative; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--primary-cyan); text-shadow: 0 0 10px var(--primary-cyan); }
+        .nav-links a::before { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple)); transition: width 0.3s ease; }
+        .nav-links a:hover::before { width: 100%; }
+        
+        /* Mobile Menu */
+        .mobile-menu-button { display: none; background: none; border: none; color: var(--primary-cyan); font-size: 1.5rem; cursor: pointer; position: relative; width: 30px; height: 30px; }
+        .hamburger { position: relative; width: 25px; height: 20px; margin: auto; }
+        .hamburger span { display: block; position: absolute; height: 2px; width: 100%; background: var(--primary-cyan); transition: all 0.25s ease-in-out; }
+        .hamburger span:nth-child(1) { top: 0px; }
+        .hamburger span:nth-child(2) { top: 9px; }
+        .hamburger span:nth-child(3) { top: 18px; }
+        .mobile-menu-button.active .hamburger span:nth-child(1) { top: 9px; transform: rotate(135deg); }
+        .mobile-menu-button.active .hamburger span:nth-child(2) { opacity: 0; left: -25px; }
+        .mobile-menu-button.active .hamburger span:nth-child(3) { top: 9px; transform: rotate(-135deg); }
+        .mobile-menu { position: fixed; top: 78px; right: -100%; width: 80%; max-width: 350px; height: calc(100vh - 78px); background: var(--darker-bg); border-left: 2px solid var(--border-color); z-index: 9999; transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0, 0, 0, 0.7); z-index: 9998; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+        .mobile-menu-header { padding: 2rem; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+        .mobile-menu-logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-cyan); text-decoration: none; }
+        .mobile-menu-close { background: none; border: none; color: var(--primary-cyan); font-size: 1.5rem; cursor: pointer; }
+        .mobile-menu-nav ul { list-style: none; padding: 0; }
+        .mobile-menu-nav a { display: block; padding: 1.5rem 2rem; color: var(--text-secondary); text-decoration: none; font-weight: 600; text-transform: uppercase; border-bottom: 1px solid rgba(229, 231, 235, 0.1); }
+        .mobile-menu-nav a:hover { color: var(--primary-cyan); background: rgba(0, 255, 255, 0.05); }
+
+        /* Hero Section */
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 2rem; }
+        .hero-container { max-width: 1400px; margin: 0 auto; }
+        .hero-title { font-size: clamp(3rem, 8vw, 6rem); font-weight: 900; margin-bottom: 2rem; text-transform: uppercase; line-height: 1.2; }
+        .hero-nexus { background: linear-gradient(135deg, var(--primary-cyan), #00ccff); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: cyanPulse 3s ease-in-out infinite; }
+        .hero-flow { background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: purplePulse 3s ease-in-out infinite; animation-delay: 1.5s; }
+        @keyframes cyanPulse { 0%, 100% { filter: brightness(1) drop-shadow(0 0 15px rgba(0, 255, 255, 0.6)); } 50% { filter: brightness(1.1) drop-shadow(0 0 25px rgba(0, 255, 255, 0.8)); } }
+        @keyframes purplePulse { 0%, 100% { filter: brightness(1) drop-shadow(0 0 15px rgba(255, 0, 255, 0.6)); } 50% { filter: brightness(1.1) drop-shadow(0 0 25px rgba(255, 0, 255, 0.8)); } }
+        .hero-subtitle { font-size: 1.5rem; color: var(--text-secondary); margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+
+        /* General Sections */
+        .section { padding: 120px 2rem; position: relative; }
+        .section-container { max-width: 1400px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 5rem; }
+        .section-title { font-size: 3rem; font-weight: 800; color: var(--primary-cyan); text-transform: uppercase; margin-bottom: 1rem; text-shadow: 0 0 20px rgba(0, 255, 255, 0.5); position: relative; }
+        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple)); }
+        .section-subtitle { font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
+        
+        /* Stats Section */
+        .stats { padding: 80px 2rem; background: rgba(0, 255, 255, 0.02); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: center; margin-top: 3rem; }
+        .stat-item { position: relative; }
+        .stat-number { font-size: 4rem; font-weight: 900; background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: block; margin-bottom: 0.5rem; filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.3)); }
+        .stat-label { font-size: 1.1rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Features/Methodology Section */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; }
+        .feature-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 3rem; transition: all 0.4s ease; backdrop-filter: blur(10px); clip-path: polygon(20px 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%, 0% 20px); }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0, 255, 255, 0.2); }
+        .feature-icon { width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple)); display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; font-size: 2rem; clip-path: polygon(15px 0%, 100% 0%, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0% 100%, 0% 15px); }
+        .feature-card h3 { font-size: 1.5rem; color: var(--primary-cyan); margin-bottom: 1rem; text-transform: uppercase; }
+        .feature-card p { color: var(--text-secondary); line-height: 1.8; }
+        
+        /* Image & Chart Styles */
+        .content--wrapper { text-align: center; margin-top: 3rem; }
+        .content-wrapper img, .chart-container { max-width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1); border: 1px solid var(--border-color); }
+        .chart-container { background: rgba(15, 23, 42, 0.8); padding: 1.5rem; }
+        
+        /* Footer */
+        .footer { padding: 60px 2rem 40px; border-top: 1px solid var(--border-color); text-align: center; background: rgba(0, 0, 0, 0.5); }
+        .footer-content { max-width: 1400px; margin: 0 auto; }
+        .footer-bottom { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* Animations */
+        .fade-up { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-button { display: block; }
+            .nav-links { display: none; }
+            .hero-title { font-size: 2.5rem; }
+            .section-title { font-size: 2.2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-
-<body data-spy="scroll" data-target=".navbar-custom">
-
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#header"><span>SI</span>GAP</a>
-            </div>
-            <div class="collapse navbar-collapse navbar-main-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#problem">Pendahuluan</a></li>
-                    <li><a href="#method">Metodologi</a></li>
-                    <li><a href="#results-map">Hasil</a></li>
-                    <li><a href="#conclusion">Kesimpulan</a></li>
-                </ul>
-            </div>
+<body id="top">
+    <!-- Background Elements -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+    <div class="particles" id="particlesContainer"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="grid-overlay"><div class="grid-lines"></div></div>
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#top" class="logo">SIGAP</a>
+            <ul class="nav-links">
+                <li><a href="#problem">Pendahuluan</a></li>
+                <li><a href="#method">Metodologi</a></li>
+                <li><a href="#results-map">Hasil</a></li>
+                <li><a href="#conclusion">Kesimpulan</a></li>
+            </ul>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </button>
         </div>
     </nav>
 
-    <header id="header" class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="header-content">
-                        <h1 class="animated fadeInDown">SIGAP</h1>
-                        <p class="animated fadeInUp">Sebuah Proyek Inovatif oleh <strong style="color:#0f172a;">Open Synthesis</strong><br>Membangun Generasi Emas Jawa Timur Melalui Prediksi Risiko Stunting Berbasis Bukti</p>
-                    </div>
-                </div>
-            </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="#top" class="mobile-menu-logo">SIGAP</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="#problem">Pendahuluan</a></li>
+                <li><a href="#method">Metodologi</a></li>
+                <li><a href="#results-map">Hasil</a></li>
+                <li><a href="#conclusion">Kesimpulan</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero" id="header">
+        <div class="hero-container">
+            <h1 class="hero-title">
+                <span class="hero-nexus">SI</span><span class="hero-flow">GAP</span>
+            </h1>
+            <p class="hero-subtitle">Sebuah Proyek Inovatif oleh <strong>Open Synthesis</strong><br>Membangun Generasi Emas Jawa Timur Melalui Prediksi Risiko Stunting Berbasis Bukti</p>
         </div>
     </header>
 
-    <section id="problem" class="section">
-        <div class="container">
+    <!-- Problem Section -->
+    <section id="problem" class="stats fade-up">
+        <div class="section-container">
             <div class="section-header">
-                <h2 class="wow fadeInDown">Paradoks di Balik Progres</h2>
-                <p class="wow fadeInDown">Jawa Timur berhasil menekan angka stunting secara signifikan. Namun, data ini mengungkap disparitas geografis yang tajam, sebuah tantangan tersembunyi yang membutuhkan solusi presisi.</p>
+                <h2 class="section-title">Paradoks di Balik Progres</h2>
+                <p class="section-subtitle">Jawa Timur berhasil menekan angka stunting secara signifikan. Namun, data ini mengungkap disparitas geografis yang tajam, sebuah tantangan tersembunyi yang membutuhkan solusi presisi.</p>
             </div>
-            <div class="row" style="margin-bottom: 40px;">
-                <div class="col-md-3 col-sm-6 wow fadeInUp">
-                    <div class="stat-card">
-                        <div class="stat-number" style="color:#10b981;">55,14%</div>
-                        <div class="stat-label">Penurunan Jatim (2018-2024)</div>
-                    </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">55,14%</span>
+                    <span class="stat-label">Penurunan Jatim (2018-2024)</span>
                 </div>
-                <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="stat-card">
-                        <div class="stat-number">14,7%</div>
-                        <div class="stat-label">Prevalensi Jatim 2024</div>
-                    </div>
+                <div class="stat-item">
+                    <span class="stat-number">14,7%</span>
+                    <span class="stat-label">Prevalensi Jatim 2024</span>
                 </div>
-                <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
-                     <div class="stat-card">
-                        <div class="stat-number" style="color:#ef4444;">30,4%</div>
-                        <div class="stat-label">Kasus Tertinggi (Bondowoso)</div>
-                    </div>
+                <div class="stat-item">
+                    <span class="stat-number" style="color:#ef4444;">30,4%</span>
+                    <span class="stat-label">Kasus Tertinggi (Bondowoso)</span>
                 </div>
-                <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                     <div class="stat-card">
-                        <div class="stat-number" style="color:#22c55e;">4,1%</div>
-                        <div class="stat-label">Kasus Terendah (Sampang)</div>
-                    </div>
+                <div class="stat-item">
+                    <span class="stat-number" style="color:#22c55e;">4,1%</span>
+                    <span class="stat-label">Kasus Terendah (Sampang)</span>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 wow fadeInUp">
-                     <img src="https://raw.githubusercontent.com/fazelahmd/Sigap/main/1_Peta_Prevalensi_Stunting_2024_AbbottRed_Labeled.jpeg" alt="Peta Prevalensi Stunting" class="img-responsive" style="border-radius:12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-                </div>
+             <div class="content-wrapper">
+                <img src="https://raw.githubusercontent.com/fazelahmd/Sigap/main/1_Peta_Prevalensi_Stunting_2024_AbbottRed_Labeled.jpeg" alt="Peta Prevalensi Stunting" class="img-responsive">
             </div>
         </div>
     </section>
     
-    <section id="method" class="section" style="background-color: #f1f5f9;">
-         <div class="container">
+    <!-- Method Section -->
+    <section id="method" class="section fade-up">
+         <div class="section-container">
             <div class="section-header">
-                <h2 class="wow fadeInDown">Metodologi SIGAP</h2>
-                <p class="wow fadeInDown">SIGAP bekerja dengan menggabungkan tiga komponen penilaian untuk menghasilkan Skor Risiko yang komprehensif.</p>
+                <h2 class="section-title">Metodologi SIGAP</h2>
+                <p class="section-subtitle">SIGAP bekerja dengan menggabungkan tiga komponen penilaian untuk menghasilkan Skor Risiko yang komprehensif.</p>
             </div>
-            <div class="row">
-                <div class="col-md-4 wow fadeInUp">
-                    <div class="method-card">
-                        <h3>Komponen 1</h3>
-                        <p>Skor Tingkat Stunting</p>
-                    </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">1</div>
+                    <h3>Komponen 1</h3>
+                    <p>Skor Tingkat Stunting</p>
                 </div>
-                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
-                     <div class="method-card">
-                        <h3>Komponen 2</h3>
-                        <p>Skor Analisis Tren</p>
-                    </div>
+                <div class="feature-card">
+                     <div class="feature-icon">2</div>
+                    <h3>Komponen 2</h3>
+                    <p>Skor Analisis Tren</p>
                 </div>
-                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
-                     <div class="method-card">
-                        <h3>Komponen 3</h3>
-                        <p>Penalti Kelengkapan Data</p>
-                    </div>
+                <div class="feature-card">
+                     <div class="feature-icon">3</div>
+                    <h3>Komponen 3</h3>
+                    <p>Penalti Kelengkapan Data</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="results-map" class="section">
-        <div class="container">
+    <!-- Results: Map Section -->
+    <section id="results-map" class="section fade-up">
+        <div class="section-container">
             <div class="section-header">
-                <h2 class="wow fadeInDown">Hasil: Peta Risiko SIGAP</h2>
-                <p class="wow fadeInDown">Analisis SIGAP menghasilkan peta tindakan yang mengarahkan prioritas intervensi ke wilayah paling membutuhkan.</p>
+                <h2 class="section-title">Hasil: Peta Risiko SIGAP</h2>
+                <p class="section-subtitle">Analisis SIGAP menghasilkan peta tindakan yang mengarahkan prioritas intervensi ke wilayah paling membutuhkan.</p>
             </div>
-            <div class="row">
-                <div class="col-md-12 text-center wow fadeInUp">
-                    <img src="https://raw.githubusercontent.com/fazelahmd/Sigap/main/2_Peta_Risiko_SIGAP_AbbottRed_Labeled.jpeg" alt="Peta Risiko SIGAP" class="img-responsive" style="border-radius:12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); margin-top:20px;">
-                </div>
+            <div class="content-wrapper">
+                <img src="https://raw.githubusercontent.com/fazelahmd/Sigap/main/2_Peta_Risiko_SIGAP_AbbottRed_Labeled.jpeg" alt="Peta Risiko SIGAP" class="img-responsive">
             </div>
         </div>
     </section>
 
-    <section id="results-trend" class="section" style="background-color: #f1f5f9;">
-        <div class="container">
+    <!-- Results: Trend Chart -->
+    <section id="results-trend" class="section fade-up">
+        <div class="section-container">
             <div class="section-header">
-                <h2 class="wow fadeInDown">Hasil: Dinamika Penurunan Stunting</h2>
-                <p class="wow fadeInDown">Garis <strong style="color:#10b981">hijau putus-putus</strong> menunjukkan tren penurunan rata-rata provinsi yang impresif, sementara garis abu-abu adalah jejak unik setiap daerah.</p>
+                <h2 class="section-title">Hasil: Dinamika Penurunan Stunting</h2>
+                <p class="section-subtitle">Garis <strong style="color:var(--primary-cyan)">hijau putus-putus</strong> menunjukkan tren penurunan rata-rata provinsi yang impresif, sementara garis abu-abu adalah jejak unik setiap daerah.</p>
             </div>
-            <div class="row">
-                <div class="col-md-12 wow fadeInUp">
-                    <div style="height:450px; margin-top:20px;"><canvas id="trendLineChart"></canvas></div>
-                </div>
+            <div class="content-wrapper">
+                <div class="chart-container"><canvas id="trendLineChart"></canvas></div>
             </div>
         </div>
     </section>
     
-    <section id="results-distribution" class="section">
-        <div class="container">
+    <!-- Results: Distribution Chart -->
+    <section id="results-distribution" class="section fade-up">
+        <div class="section-container">
             <div class="section-header">
-                 <h2 class="wow fadeInDown">Hasil: Distribusi Kategori Risiko</h2>
-                 <p class="wow fadeInDown">Grafik ini menyajikan potret sebaran risiko di Jawa Timur. Mayoritas wilayah berada di jalur yang positif, namun masih terdapat 7 wilayah yang terkategori Kritis, menandakan perlunya intervensi darurat.</p>
+                 <h2 class="section-title">Hasil: Distribusi Kategori Risiko</h2>
+                 <p class="section-subtitle">Grafik ini menyajikan potret sebaran risiko di Jawa Timur. Mayoritas wilayah berada di jalur yang positif, namun masih terdapat 7 wilayah yang terkategori Kritis, menandakan perlunya intervensi darurat.</p>
             </div>
-            <div class="row">
-                 <div class="col-md-8 col-md-offset-2 wow fadeInUp">
-                    <div style="height:400px; margin-top:20px;"><canvas id="categoryBarChart"></canvas></div>
-                </div>
+            <div class="content-wrapper">
+                 <div class="chart-container"><canvas id="categoryBarChart"></canvas></div>
             </div>
         </div>
     </section>
 
-    <section id="results-validation" class="section" style="background-color: #f1f5f9;">
-        <div class="container">
+    <!-- Results: Validation Chart -->
+    <section id="results-validation" class="section fade-up">
+        <div class="section-container">
             <div class="section-header">
-                <h2 class="wow fadeInDown">Hasil: Validasi Model ($r=0,84$)</h2>
-                <p class="wow fadeInDown">Keandalan model SIGAP divalidasi secara statistik. Korelasi yang sangat kuat ($r=0,84$) antara skor risiko dan prevalensi stunting aktual membuktikan bahwa SIGAP adalah instrumen prediktif yang akurat dan dapat diandalkan.</p>
+                <h2 class="section-title">Hasil: Validasi Model (r=0,84)</h2>
+                <p class="section-subtitle">Keandalan model SIGAP divalidasi secara statistik. Korelasi yang sangat kuat (r=0,84) antara skor risiko dan prevalensi stunting aktual membuktikan bahwa SIGAP adalah instrumen prediktif yang akurat dan dapat diandalkan.</p>
             </div>
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 wow fadeInUp">
-                    <div style="height:400px; margin-top:20px;"><canvas id="correlationScatterPlot"></canvas></div>
-                </div>
+            <div class="content-wrapper">
+                <div class="chart-container"><canvas id="correlationScatterPlot"></canvas></div>
             </div>
         </div>
     </section>
 
-    <section id="conclusion" class="section" style="background-color: #0f172a;">
-         <div class="container">
+    <!-- Conclusion Section -->
+    <section id="conclusion" class="section fade-up">
+         <div class="section-container">
             <div class="section-header">
-                <h2 class="wow fadeInDown" style="color: #fff;">Kesimpulan: Kompas Kebijakan</h2>
-                <p class="wow fadeInDown" style="color: #94a3b8;">SIGAP adalah alat bantu strategis berbasis bukti untuk menargetkan intervensi, mengoptimalkan anggaran, dan mereplikasi keberhasilan demi masa depan Generasi Emas Indonesia.</p>
+                <h2 class="section-title">Kesimpulan: Kompas Kebijakan</h2>
+                <p class="section-subtitle">SIGAP adalah alat bantu strategis berbasis bukti untuk menargetkan intervensi, mengoptimalkan anggaran, dan mereplikasi keberhasilan demi masa depan Generasi Emas Indonesia.</p>
             </div>
         </div>
     </section>
 
-    <footer style="background-color: #020617; padding: 30px 0; text-align:center;">
-         <p style="color: #94a3b8;">Sebuah Karya Inovatif dari Tim <strong style="color: #fff;">Open Synthesis</strong>.</p>
+    <!-- Footer -->
+    <footer class="footer">
+         <div class="footer-content">
+            <div class="footer-bottom">
+                 <p>Sebuah Karya Inovatif dari Tim <strong>Open Synthesis</strong>.</p>
+            </div>
+        </div>
     </footer>
 
     <!-- JS Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-        // --- Data (shortened for brevity) ---
-        const sigapData = [{"nama_wilayah":"Bangkalan","stunting_2024":17.6,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Banyuwangi","stunting_2024":17.8,"sigap_total_score":43.8,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Blitar","stunting_2024":11.2,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Bojonegoro","stunting_2024":15.2,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Bondowoso","stunting_2024":30.4,"sigap_total_score":62.5,"sigap_risk_category":"HIGH"}, {"nama_wilayah":"Gresik","stunting_2024":17.2,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Jember","stunting_2024":7.9,"sigap_total_score":25.0,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Jombang","stunting_2024":24.5,"sigap_total_score":56.2,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Kediri","stunting_2024":11.4,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Kota Batu","stunting_2024":17.6,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Kota Blitar","stunting_2024":11.8,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Kota Kediri","stunting_2024":22.8,"sigap_total_score":62.5,"sigap_risk_category":"HIGH"}, {"nama_wilayah":"Kota Madiun","stunting_2024":18.3,"sigap_total_score":50.0,"sigap_risk_category":"HIGH"}, {"nama_wilayah":"Kota Malang","stunting_2024":6.9,"sigap_total_score":25.0,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Kota Mojokerto","stunting_2024":23.4,"sigap_total_score":56.2,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Kota Pasuruan","stunting_2024":12.1,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Kota Probolinggo","stunting_2024":10.3,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Kota Surabaya","stunting_2024":23.3,"sigap_total_score":56.2,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Lamongan","stunting_2024":15.2,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Lumajang","stunting_2024":22.8,"sigap_total_score":56.2,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Madiun","stunting_2024":11.4,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Magetan","stunting_2024":11.7,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Malang","stunting_2024":18.9,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Mojokerto","stunting_2024":10.6,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Nganjuk","stunting_2024":11.2,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Ngawi","stunting_2024":11.3,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Pacitan","stunting_2024":6.7,"sigap_total_score":25.0,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Pamekasan","stunting_2024":13.7,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Pasuruan","stunting_2024":16.1,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Ponorogo","stunting_2024":14.1,"sigap_total_score":43.8,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Probolinggo","stunting_2024":8.4,"sigap_total_score":25.0,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Sampang","stunting_2024":4.1,"sigap_total_score":25.0,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Sidoarjo","stunting_2024":16.7,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Situbondo","stunting_2024":15.8,"sigap_total_score":43.8,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Sumenep","stunting_2024":21.5,"sigap_total_score":68.8,"sigap_risk_category":"HIGH"}, {"nama_wilayah":"Trenggalek","stunting_2024":17.8,"sigap_total_score":53.8,"sigap_risk_category":"HIGH"}, {"nama_wilayah":"Tuban","stunting_2024":21.5,"sigap_total_score":82.5,"sigap_risk_category":"HIGH"}, {"nama_wilayah":"Tulungagung","stunting_2024":17.8,"sigap_total_score":62.5,"sigap_risk_category":"HIGH"}];
-        const sigapFullData = [{"nama_wilayah":"Bangkalan","stunting_2018":41.97,"stunting_2019":23.3,"stunting_2021":38.9,"stunting_2022":26.2,"stunting_2023":10.2,"stunting_2024":17.6},{"nama_wilayah":"Banyuwangi","stunting_2018":32.01,"stunting_2019":23.5,"stunting_2021":20.1,"stunting_2022":18.1,"stunting_2023":21.9,"stunting_2024":17.8},{"nama_wilayah":"Blitar","stunting_2018":27.36,"stunting_2019":25.4,"stunting_2021":14.5,"stunting_2022":14.3,"stunting_2023":20.3,"stunting_2024":11.2},{"nama_wilayah":"Bojonegoro","stunting_2018":34.91,"stunting_2019":37.4,"stunting_2021":23.9,"stunting_2022":24.3,"stunting_2023":14.1,"stunting_2024":15.2},{"nama_wilayah":"Bondowoso","stunting_2018":37.98,"stunting_2019":37.9,"stunting_2021":37.0,"stunting_2022":32.0,"stunting_2023":15.4,"stunting_2024":30.4},{"nama_wilayah":"Gresik","stunting_2018":38.51,"stunting_2019":32.1,"stunting_2021":23.0,"stunting_2022":34.9,"stunting_2023":18.0,"stunting_2024":17.2},{"nama_wilayah":"Jember","stunting_2018":29.78,"stunting_2019":24.3,"stunting_2021":21.0,"stunting_2022":22.1,"stunting_2023":29.7,"stunting_2024":7.9},{"nama_wilayah":"Jombang","stunting_2018":29.36,"stunting_2019":26.6,"stunting_2021":18.0,"stunting_2022":21.6,"stunting_2023":18.0,"stunting_2024":24.5},{"nama_wilayah":"Kediri","stunting_2018":28.33,"stunting_2019":28.1,"stunting_2021":15.0,"stunting_2022":25.2,"stunting_2023":23.1,"stunting_2024":11.4},{"nama_wilayah":"Kota Batu","stunting_2018":34.62,"stunting_2019":24.7,"stunting_2021":12.9,"stunting_2022":12.8,"stunting_2023":17.0,"stunting_2024":17.6},{"nama_wilayah":"Kota Blitar","stunting_2018":29.06,"stunting_2019":23.9,"stunting_2021":12.4,"stunting_2022":14.3,"stunting_2023":18.6,"stunting_2024":11.8},{"nama_wilayah":"Kota Kediri","stunting_2018":23.42,"stunting_2019":13.7,"stunting_2021":6.9,"stunting_2022":9.7,"stunting_2023":12.8,"stunting_2024":22.8},{"nama_wilayah":"Kota Madiun","stunting_2018":20.86,"stunting_2019":10.0,"stunting_2021":19.0,"stunting_2022":8.4,"stunting_2023":11.0,"stunting_2024":18.3},{"nama_wilayah":"Kota Malang","stunting_2018":34.48,"stunting_2019":35.6,"stunting_2021":28.9,"stunting_2022":27.5,"stunting_2023":31.8,"stunting_2024":6.9},{"nama_wilayah":"Kota Mojokerto","stunting_2018":30.02,"stunting_2019":27.2,"stunting_2021":20.5,"stunting_2022":23.8,"stunting_2023":11.7,"stunting_2024":23.4},{"nama_wilayah":"Kota Pasuruan","stunting_2018":28.57,"stunting_2019":14.2,"stunting_2021":22.1,"stunting_2022":23.0,"stunting_2023":6.9,"stunting_2024":12.1},{"nama_wilayah":"Kota Probolinggo","stunting_2018":34.01,"stunting_2019":25.3,"stunting_2021":25.7,"stunting_2022":25.0,"stunting_2023":23.4,"stunting_2024":10.3},{"nama_wilayah":"Kota Surabaya","stunting_2018":32.45,"stunting_2019":22.0,"stunting_2021":27.4,"stunting_2022":20.0,"stunting_2023":12.1,"stunting_2024":23.3},{"nama_wilayah":"Lamongan","stunting_2018":31.74,"stunting_2019":16.0,"stunting_2021":25.3,"stunting_2022":16.4,"stunting_2023":10.3,"stunting_2024":15.2},{"nama_wilayah":"Lumajang","stunting_2018":29.9,"stunting_2019":25.3,"stunting_2021":16.2,"stunting_2022":20.6,"stunting_2023":23.3,"stunting_2024":22.8},{"nama_wilayah":"Madiun","stunting_2018":26.95,"stunting_2019":20.6,"stunting_2021":23.3,"stunting_2022":14.2,"stunting_2023":15.2,"stunting_2024":11.4},{"nama_wilayah":"Magetan","stunting_2018":40.47,"stunting_2019":29.6,"stunting_2021":21.5,"stunting_2022":17.3,"stunting_2023":22.8,"stunting_2024":11.7},{"nama_wilayah":"Malang","stunting_2018":26.34,"stunting_2019":26.5,"stunting_2021":23.7,"stunting_2022":16.1,"stunting_2023":11.4,"stunting_2024":18.9},{"nama_wilayah":"Mojokerto","stunting_2018":44.12,"stunting_2019":25.9,"stunting_2021":29.0,"stunting_2022":21.6,"stunting_2023":11.7,"stunting_2024":10.6},{"nama_wilayah":"Nganjuk","stunting_2018":39.7,"stunting_2019":33.0,"stunting_2021":18.1,"stunting_2022":19.5,"stunting_2023":18.9,"stunting_2024":11.2},{"nama_wilayah":"Ngawi","stunting_2018":30.5,"stunting_2019":28.6,"stunting_2021":15.1,"stunting_2022":24.9,"stunting_2023":10.6,"stunting_2024":11.3},{"nama_wilayah":"Pacitan","stunting_2018":39.9,"stunting_2019":30.6,"stunting_2021":22.7,"stunting_2022":30.9,"stunting_2023":11.2,"stunting_2024":6.7},{"nama_wilayah":"Pamekasan","stunting_2018":47.93,"stunting_2019":53.9,"stunting_2021":38.7,"stunting_2022":17.3,"stunting_2023":11.3,"stunting_2024":13.7},{"nama_wilayah":"Pasuruan","stunting_2018":27.05,"stunting_2019":34.6,"stunting_2021":21.5,"stunting_2022":6.9,"stunting_2023":6.7,"stunting_2024":16.1},{"nama_wilayah":"Ponorogo","stunting_2018":30.66,"stunting_2019":8.9,"stunting_2021":20.0,"stunting_2022":16.1,"stunting_2023":13.7,"stunting_2024":14.1},{"nama_wilayah":"Probolinggo","stunting_2018":33.0,"stunting_2019":14.1,"stunting_2021":23.3,"stunting_2022":14.1,"stunting_2023":16.1,"stunting_2024":8.4},{"nama_wilayah":"Sampang","stunting_2018":34.13,"stunting_2019":16.1,"stunting_2021":17.2,"stunting_2022":8.4,"stunting_2023":14.1,"stunting_2024":4.1},{"nama_wilayah":"Sidoarjo","stunting_2018":39.89,"stunting_2019":14.1,"stunting_2021":14.8,"stunting_2022":4.1,"stunting_2023":8.4,"stunting_2024":16.7},{"nama_wilayah":"Situbondo","stunting_2018":30.76,"stunting_2019":8.4,"stunting_2021":23.7,"stunting_2022":16.7,"stunting_2023":4.1,"stunting_2024":15.8},{"nama_wilayah":"Sumenep","stunting_2018":26.17,"stunting_2019":4.1,"stunting_2021":29.0,"stunting_2022":15.8,"stunting_2023":16.7,"stunting_2024":21.5},{"nama_wilayah":"Trenggalek","stunting_2018":null,"stunting_2019":16.7,"stunting_2021":25.1,"stunting_2022":21.5,"stunting_2023":15.8,"stunting_2024":17.8},{"nama_wilayah":"Tuban","stunting_2018":null,"stunting_2019":15.8,"stunting_2021":23.3,"stunting_2022":17.8,"stunting_2023":21.5,"stunting_2024":null},{"nama_wilayah":"Tulungagung","stunting_2018":null,"stunting_2019":21.5,"stunting_2021":null,"stunting_2022":null,"stunting_2023":17.8,"stunting_2024":null}];
+        // --- Nexus Flow Theme Scripts ---
+        function initializeMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            if (!mobileMenuBtn || !mobileMenu || !mobileMenuOverlay || !mobileMenuClose) return;
 
-        // Custom JS for template interactivity
-        $(document).ready(function(){
-            new WOW().init();
+            const toggleMenu = (open) => {
+                mobileMenuBtn.classList.toggle('active', open);
+                mobileMenu.classList.toggle('active', open);
+                mobileMenuOverlay.classList.toggle('active', open);
+                document.body.style.overflow = open ? 'hidden' : '';
+            };
+
+            mobileMenuBtn.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(!mobileMenu.classList.contains('active')); });
+            mobileMenuClose.addEventListener('click', (e) => { e.preventDefault(); toggleMenu(false); });
+            mobileMenuOverlay.addEventListener('click', () => toggleMenu(false));
+            document.querySelectorAll('.mobile-menu-nav a').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+        }
+
+        function generateMatrixRain() {
+            const matrixRain = document.getElementById('matrixRain');
+            if (!matrixRain) return;
+            matrixRain.innerHTML = '';
+            const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+            const columns = Math.floor(window.innerWidth / 20);
+            for (let i = 0; i < columns; i++) {
+                const column = document.createElement('div');
+                column.className = 'matrix-column';
+                column.style.left = `${i * 20}px`;
+                column.style.animationDuration = `${Math.random() * 5 + 10}s`;
+                column.style.animationDelay = `${Math.random() * 5}s`;
+                let text = '';
+                const charCount = Math.floor(Math.random() * 20 + 10);
+                for (let j = 0; j < charCount; j++) text += characters[Math.floor(Math.random() * characters.length)] + ' ';
+                column.textContent = text;
+                matrixRain.appendChild(column);
+            }
+        }
+
+        function generateParticles() {
+            const particlesContainer = document.getElementById('particlesContainer');
+            if(!particlesContainer) return;
+            const particleCount = 50;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 20}s`;
+                particle.style.animationDuration = `${Math.random() * 10 + 20}s`;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeMobileMenu();
+            generateMatrixRain();
+            generateParticles();
             
-            // Fixed navigation
-            $(window).scroll(function() {
-                if ($(window).scrollTop() > 100) {
-                    $('.navbar-custom').addClass('fixed');
-                } else {
-                    $('.navbar-custom').removeClass('fixed');
-                }
+            // Scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+            
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.length > 1) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            const headerOffset = 70;
+                            const elementPosition = target.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            
+                            window.scrollTo({
+                                 top: offsetPosition,
+                                 behavior: "smooth"
+                            });
+                        }
+                    }
+                });
             });
+        });
 
-            // Page scroll
-            $('a.page-scroll').on('click', function(event) {
-                var target = $(this.getAttribute('href'));
-                if( target.length ) {
-                    event.preventDefault();
-                    $('html, body').stop().animate({
-                        scrollTop: target.offset().top - 70
-                    }, 1000);
-                }
-            });
-
-            $('.navbar-collapse ul li a').click(function() {
-                $('.navbar-toggle:visible').click();
-            });
-
-            // --- Charts ---
-            const chartTextColorDark = '#1f2937';
-            const chartGridColorLight = '#e2e8f0';
+        // --- SIGAP Chart Scripts ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Data
+            const sigapData = [{"nama_wilayah":"Bangkalan","stunting_2024":17.6,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Banyuwangi","stunting_2024":17.8,"sigap_total_score":43.8,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Blitar","stunting_2024":11.2,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Bojonegoro","stunting_2024":15.2,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Bondowoso","stunting_2024":30.4,"sigap_total_score":62.5,"sigap_risk_category":"HIGH"}, {"nama_wilayah":"Gresik","stunting_2024":17.2,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Jember","stunting_2024":7.9,"sigap_total_score":25.0,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Jombang","stunting_2024":24.5,"sigap_total_score":56.2,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Kediri","stunting_2024":11.4,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Kota Batu","stunting_2024":17.6,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Kota Blitar","stunting_2024":11.8,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Kota Kediri","stunting_2024":22.8,"sigap_total_score":62.5,"sigap_risk_category":"HIGH"}, {"nama_wilayah":"Kota Madiun","stunting_2024":18.3,"sigap_total_score":50.0,"sigap_risk_category":"HIGH"}, {"nama_wilayah":"Kota Malang","stunting_2024":6.9,"sigap_total_score":25.0,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Kota Mojokerto","stunting_2024":23.4,"sigap_total_score":56.2,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Kota Pasuruan","stunting_2024":12.1,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Kota Probolinggo","stunting_2024":10.3,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Kota Surabaya","stunting_2024":23.3,"sigap_total_score":56.2,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Lamongan","stunting_2024":15.2,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Lumajang","stunting_2024":22.8,"sigap_total_score":56.2,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Madiun","stunting_2024":11.4,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Magetan","stunting_2024":11.7,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Malang","stunting_2024":18.9,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Mojokerto","stunting_2024":10.6,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Nganjuk","stunting_2024":11.2,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Ngawi","stunting_2024":11.3,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Pacitan","stunting_2024":6.7,"sigap_total_score":25.0,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Pamekasan","stunting_2024":13.7,"sigap_total_score":31.2,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Pasuruan","stunting_2024":16.1,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Ponorogo","stunting_2024":14.1,"sigap_total_score":43.8,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Probolinggo","stunting_2024":8.4,"sigap_total_score":25.0,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Sampang","stunting_2024":4.1,"sigap_total_score":25.0,"sigap_risk_category":"SUCCESS"}, {"nama_wilayah":"Sidoarjo","stunting_2024":16.7,"sigap_total_score":37.5,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Situbondo","stunting_2024":15.8,"sigap_total_score":43.8,"sigap_risk_category":"IMPROVING"}, {"nama_wilayah":"Sumenep","stunting_2024":21.5,"sigap_total_score":68.8,"sigap_risk_category":"HIGH"}, {"nama_wilayah":"Trenggalek","stunting_2024":17.8,"sigap_total_score":53.8,"sigap_risk_category":"HIGH"}, {"nama_wilayah":"Tuban","stunting_2024":21.5,"sigap_total_score":82.5,"sigap_risk_category":"HIGH"}, {"nama_wilayah":"Tulungagung","stunting_2024":17.8,"sigap_total_score":62.5,"sigap_risk_category":"HIGH"}];
+            const sigapFullData = [{"nama_wilayah":"Bangkalan","stunting_2018":41.97,"stunting_2019":23.3,"stunting_2021":38.9,"stunting_2022":26.2,"stunting_2023":10.2,"stunting_2024":17.6},{"nama_wilayah":"Banyuwangi","stunting_2018":32.01,"stunting_2019":23.5,"stunting_2021":20.1,"stunting_2022":18.1,"stunting_2023":21.9,"stunting_2024":17.8},{"nama_wilayah":"Blitar","stunting_2018":27.36,"stunting_2019":25.4,"stunting_2021":14.5,"stunting_2022":14.3,"stunting_2023":20.3,"stunting_2024":11.2},{"nama_wilayah":"Bojonegoro","stunting_2018":34.91,"stunting_2019":37.4,"stunting_2021":23.9,"stunting_2022":24.3,"stunting_2023":14.1,"stunting_2024":15.2},{"nama_wilayah":"Bondowoso","stunting_2018":37.98,"stunting_2019":37.9,"stunting_2021":37.0,"stunting_2022":32.0,"stunting_2023":15.4,"stunting_2024":30.4},{"nama_wilayah":"Gresik","stunting_2018":38.51,"stunting_2019":32.1,"stunting_2021":23.0,"stunting_2022":34.9,"stunting_2023":18.0,"stunting_2024":17.2},{"nama_wilayah":"Jember","stunting_2018":29.78,"stunting_2019":24.3,"stunting_2021":21.0,"stunting_2022":22.1,"stunting_2023":29.7,"stunting_2024":7.9},{"nama_wilayah":"Jombang","stunting_2018":29.36,"stunting_2019":26.6,"stunting_2021":18.0,"stunting_2022":21.6,"stunting_2023":18.0,"stunting_2024":24.5},{"nama_wilayah":"Kediri","stunting_2018":28.33,"stunting_2019":28.1,"stunting_2021":15.0,"stunting_2022":25.2,"stunting_2023":23.1,"stunting_2024":11.4},{"nama_wilayah":"Kota Batu","stunting_2018":34.62,"stunting_2019":24.7,"stunting_2021":12.9,"stunting_2022":12.8,"stunting_2023":17.0,"stunting_2024":17.6},{"nama_wilayah":"Kota Blitar","stunting_2018":29.06,"stunting_2019":23.9,"stunting_2021":12.4,"stunting_2022":14.3,"stunting_2023":18.6,"stunting_2024":11.8},{"nama_wilayah":"Kota Kediri","stunting_2018":23.42,"stunting_2019":13.7,"stunting_2021":6.9,"stunting_2022":9.7,"stunting_2023":12.8,"stunting_2024":22.8},{"nama_wilayah":"Kota Madiun","stunting_2018":20.86,"stunting_2019":10.0,"stunting_2021":19.0,"stunting_2022":8.4,"stunting_2023":11.0,"stunting_2024":18.3},{"nama_wilayah":"Kota Malang","stunting_2018":34.48,"stunting_2019":35.6,"stunting_2021":28.9,"stunting_2022":27.5,"stunting_2023":31.8,"stunting_2024":6.9},{"nama_wilayah":"Kota Mojokerto","stunting_2018":30.02,"stunting_2019":27.2,"stunting_2021":20.5,"stunting_2022":23.8,"stunting_2023":11.7,"stunting_2024":23.4},{"nama_wilayah":"Kota Pasuruan","stunting_2018":28.57,"stunting_2019":14.2,"stunting_2021":22.1,"stunting_2022":23.0,"stunting_2023":6.9,"stunting_2024":12.1},{"nama_wilayah":"Kota Probolinggo","stunting_2018":34.01,"stunting_2019":25.3,"stunting_2021":25.7,"stunting_2022":25.0,"stunting_2023":23.4,"stunting_2024":10.3},{"nama_wilayah":"Kota Surabaya","stunting_2018":32.45,"stunting_2019":22.0,"stunting_2021":27.4,"stunting_2022":20.0,"stunting_2023":12.1,"stunting_2024":23.3},{"nama_wilayah":"Lamongan","stunting_2018":31.74,"stunting_2019":16.0,"stunting_2021":25.3,"stunting_2022":16.4,"stunting_2023":10.3,"stunting_2024":15.2},{"nama_wilayah":"Lumajang","stunting_2018":29.9,"stunting_2019":25.3,"stunting_2021":16.2,"stunting_2022":20.6,"stunting_2023":23.3,"stunting_2024":22.8},{"nama_wilayah":"Madiun","stunting_2018":26.95,"stunting_2019":20.6,"stunting_2021":23.3,"stunting_2022":14.2,"stunting_2023":15.2,"stunting_2024":11.4},{"nama_wilayah":"Magetan","stunting_2018":40.47,"stunting_2019":29.6,"stunting_2021":21.5,"stunting_2022":17.3,"stunting_2023":22.8,"stunting_2024":11.7},{"nama_wilayah":"Malang","stunting_2018":26.34,"stunting_2019":26.5,"stunting_2021":23.7,"stunting_2022":16.1,"stunting_2023":11.4,"stunting_2024":18.9},{"nama_wilayah":"Mojokerto","stunting_2018":44.12,"stunting_2019":25.9,"stunting_2021":29.0,"stunting_2022":21.6,"stunting_2023":11.7,"stunting_2024":10.6},{"nama_wilayah":"Nganjuk","stunting_2018":39.7,"stunting_2019":33.0,"stunting_2021":18.1,"stunting_2022":19.5,"stunting_2023":18.9,"stunting_2024":11.2},{"nama_wilayah":"Ngawi","stunting_2018":30.5,"stunting_2019":28.6,"stunting_2021":15.1,"stunting_2022":24.9,"stunting_2023":10.6,"stunting_2024":11.3},{"nama_wilayah":"Pacitan","stunting_2018":39.9,"stunting_2019":30.6,"stunting_2021":22.7,"stunting_2022":30.9,"stunting_2023":11.2,"stunting_2024":6.7},{"nama_wilayah":"Pamekasan","stunting_2018":47.93,"stunting_2019":53.9,"stunting_2021":38.7,"stunting_2022":17.3,"stunting_2023":11.3,"stunting_2024":13.7},{"nama_wilayah":"Pasuruan","stunting_2018":27.05,"stunting_2019":34.6,"stunting_2021":21.5,"stunting_2022":6.9,"stunting_2023":6.7,"stunting_2024":16.1},{"nama_wilayah":"Ponorogo","stunting_2018":30.66,"stunting_2019":8.9,"stunting_2021":20.0,"stunting_2022":16.1,"stunting_2023":13.7,"stunting_2024":14.1},{"nama_wilayah":"Probolinggo","stunting_2018":33.0,"stunting_2019":14.1,"stunting_2021":23.3,"stunting_2022":14.1,"stunting_2023":16.1,"stunting_2024":8.4},{"nama_wilayah":"Sampang","stunting_2018":34.13,"stunting_2019":16.1,"stunting_2021":17.2,"stunting_2022":8.4,"stunting_2023":14.1,"stunting_2024":4.1},{"nama_wilayah":"Sidoarjo","stunting_2018":39.89,"stunting_2019":14.1,"stunting_2021":14.8,"stunting_2022":4.1,"stunting_2023":8.4,"stunting_2024":16.7},{"nama_wilayah":"Situbondo","stunting_2018":30.76,"stunting_2019":8.4,"stunting_2021":23.7,"stunting_2022":16.7,"stunting_2023":4.1,"stunting_2024":15.8},{"nama_wilayah":"Sumenep","stunting_2018":26.17,"stunting_2019":4.1,"stunting_2021":29.0,"stunting_2022":15.8,"stunting_2023":16.7,"stunting_2024":21.5},{"nama_wilayah":"Trenggalek","stunting_2018":null,"stunting_2019":16.7,"stunting_2021":25.1,"stunting_2022":21.5,"stunting_2023":15.8,"stunting_2024":17.8},{"nama_wilayah":"Tuban","stunting_2018":null,"stunting_2019":15.8,"stunting_2021":23.3,"stunting_2022":17.8,"stunting_2023":21.5,"stunting_2024":null},{"nama_wilayah":"Tulungagung","stunting_2018":null,"stunting_2019":21.5,"stunting_2021":null,"stunting_2022":null,"stunting_2023":17.8,"stunting_2024":null}];
+            
+            // --- Chart Configuration ---
+            const chartTextColor = '#e5e7eb';
+            const chartGridColor = 'rgba(229, 231, 235, 0.2)';
 
             // Trend Line Chart
             const trendCtx = document.getElementById('trendLineChart');
@@ -388,81 +596,46 @@
                 datasets.push({
                     label: 'Rata-rata Provinsi',
                     data: averageData,
-                    borderColor: '#10b981',
+                    borderColor: 'var(--primary-cyan)',
                     borderWidth: 3, pointRadius: 0, tension: 0.1, borderDash: [5, 5],
                 });
-                new Chart(trendCtx, { type: 'line', data: { labels: years, datasets }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { color: chartGridColorLight }, ticks: { color: chartTextColorDark } }, y: { grid: { color: chartGridColorLight }, ticks: { color: chartTextColorDark }, title: { display: true, text: 'Prevalensi Stunting (%)', color: chartTextColorDark } } } } });
+                new Chart(trendCtx, { type: 'line', data: { labels: years, datasets }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { color: chartGridColor }, ticks: { color: chartTextColor } }, y: { grid: { color: chartGridColor }, ticks: { color: chartTextColor }, title: { display: true, text: 'Prevalensi Stunting (%)', color: chartTextColor } } } } });
             }
 
-            // --- Bar Chart (Replicated Style) ---
+            // Category Bar Chart
             const categoryCtx = document.getElementById('categoryBarChart');
             if (categoryCtx) {
                 const categoryLabels = ['Kritis', 'Tinggi', 'Membaik'];
                 const categoryData = [7, 15, 16];
-                const riskColors = { KRITIS: '#dc2626', TINGGI: '#f87171', MEMBAIK: '#fca5a5' };
+                const riskColors = ['#dc2626', '#f87171', '#00ffff'];
                 
-                new Chart(categoryCtx, { type: 'bar', data: { labels: categoryLabels, datasets: [{ label: 'Jumlah Wilayah', data: categoryData, backgroundColor: categoryLabels.map(l => riskColors[l.toUpperCase()]) }] }, 
-                    options: { responsive: true, maintainAspectRatio: false, 
-                        plugins: { 
-                            legend: { display: false },
-                            title: { display: true, text: 'Distribusi Kategori Risiko SIGAP', color: chartTextColorDark, font: { size: 16, weight: 'bold' } }
-                        }, 
-                        scales: { 
-                            x: { grid: { display: false }, ticks: { color: chartTextColorDark, font: { weight: '500'} }, title: { display: true, text: 'Kategori Risiko SIGAP', color: chartTextColorDark, font: { weight: 'bold' } } }, 
-                            y: { grid: { color: chartGridColorLight }, ticks: { color: chartTextColorDark }, title: { display: true, text: 'Jumlah Kabupaten/Kota', color: chartTextColorDark, font: { weight: 'bold' } } } 
-                        } 
-                    } 
-                });
+                new Chart(categoryCtx, { type: 'bar', data: { labels: categoryLabels, datasets: [{ label: 'Jumlah Wilayah', data: categoryData, backgroundColor: riskColors }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { color: chartTextColor } }, y: { grid: { color: chartGridColor }, ticks: { color: chartTextColor }, title: { display: true, text: 'Jumlah Kabupaten/Kota', color: chartTextColor } } } } });
             }
 
-            // --- Scatter Plot (Replicated Style) ---
+            // Correlation Scatter Plot
             const scatterCtx = document.getElementById('correlationScatterPlot');
             if (scatterCtx) {
-                const remapCategory = (data) => {
-                    if (data.nama_wilayah === 'Bondowoso' || data.stunting_2024 > 25) return 'KRITIS';
-                    const score = data.sigap_total_score;
-                    if (score >= 50) return 'TINGGI';
-                    return 'MEMBAIK';
-                };
-
-                const plotRiskColors = { KRITIS: '#b91c1c', TINGGI: '#ef4444', MEMBAIK: '#f87171' };
-
-                const kritisData = sigapData.filter(d => remapCategory(d) === 'KRITIS').map(d => ({ x: d.sigap_total_score, y: d.stunting_2024 }));
-                const tinggiData = sigapData.filter(d => remapCategory(d) === 'TINGGI').map(d => ({ x: d.sigap_total_score, y: d.stunting_2024 }));
-                const membaikData = sigapData.filter(d => remapCategory(d) === 'MEMBAIK').map(d => ({ x: d.sigap_total_score, y: d.stunting_2024 }));
+                const plotData = sigapData.map(d => ({ x: d.sigap_total_score, y: d.stunting_2024 }));
                 
-                const datasets = [
-                    { label: 'Kritis', data: kritisData, backgroundColor: plotRiskColors.KRITIS, pointRadius: 6, pointHoverRadius: 8 },
-                    { label: 'Tinggi', data: tinggiData, backgroundColor: plotRiskColors.TINGGI, pointRadius: 6, pointHoverRadius: 8 },
-                    { label: 'Membaik', data: membaikData, backgroundColor: plotRiskColors.MEMBAIK, pointRadius: 6, pointHoverRadius: 8 },
-                ];
-
                 let n = 0, sx = 0, sy = 0, sxy = 0, sx2 = 0;
                 sigapData.forEach(d => { if (d.sigap_total_score != null && d.stunting_2024 != null) { n++; sx += d.sigap_total_score; sy += d.stunting_2024; sxy += d.sigap_total_score * d.stunting_2024; sx2 += d.sigap_total_score * d.sigap_total_score; } });
                 const m = (n * sxy - sx * sy) / (n * sx2 - sx * sx); const b = (sy - m * sx) / n;
                 const xVals = sigapData.map(d => d.sigap_total_score).filter(v => v != null);
                 const minX = Math.min(...xVals); const maxX = Math.max(...xVals);
                 const regressionLine = [{ x: minX, y: m * minX + b }, { x: maxX, y: m * maxX + b }];
-                datasets.push({ type: 'line', label: 'Garis Tren', data: regressionLine, borderColor: '#1f2937', borderWidth: 2, pointRadius: 0, tension: 0, fill: false });
-                
+
                 new Chart(scatterCtx, { 
                     type: 'scatter', 
-                    data: { datasets }, 
-                    options: { 
-                        responsive: true, maintainAspectRatio: false, 
-                        plugins: { 
-                            legend: { position: 'bottom', labels: { color: chartTextColorDark, usePointStyle: true } },
-                            title: { display: true, text: 'Korelasi Skor Risiko vs Prevalensi Stunting 2024', color: chartTextColorDark, font: { size: 16, weight: 'bold' } }
-                        }, 
-                        scales: { 
-                            x: { grid: { color: chartGridColorLight }, ticks: { color: chartTextColorDark, font: {weight: '500'} }, title: { display: true, text: 'Skor Total Risiko SIGAP', color: chartTextColorDark, font: { weight: 'bold' } } }, 
-                            y: { min: 0, grid: { color: chartGridColorLight }, ticks: { color: chartTextColorDark, font: {weight: '500'} }, title: { display: true, text: 'Prevalensi Stunting 2024 (%)', color: chartTextColorDark, font: { weight: 'bold' } } } 
-                        } 
-                    } 
+                    data: { 
+                        datasets: [
+                            { label: 'Wilayah', data: plotData, backgroundColor: 'var(--primary-cyan)', pointRadius: 6, pointHoverRadius: 8 },
+                            { type: 'line', label: 'Garis Tren', data: regressionLine, borderColor: 'var(--primary-pink)', borderWidth: 2, pointRadius: 0, tension: 0, fill: false }
+                        ] 
+                    }, 
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: chartTextColor, usePointStyle: true } } }, scales: { x: { grid: { color: chartGridColor }, ticks: { color: chartTextColor }, title: { display: true, text: 'Skor Total Risiko SIGAP', color: chartTextColor } }, y: { min: 0, grid: { color: chartGridColor }, ticks: { color: chartTextColor }, title: { display: true, text: 'Prevalensi Stunting 2024 (%)', color: chartTextColor } } } } 
                 });
             }
         });
     </script>
 </body>
 </html>
-
