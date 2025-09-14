@@ -699,9 +699,9 @@
                 };
 
                 const datasets = [
-                    { label: 'Kritis (High)', data: sigapData.filter(d => d.sigap_risk_category === 'HIGH').map(d => ({ x: d.sigap_total_score, y: d.stunting_2024 })), backgroundColor: plotRiskColors.HIGH, pointRadius: 6, pointHoverRadius: 8 },
-                    { label: 'Tinggi (Improving)', data: sigapData.filter(d => d.sigap_risk_category === 'IMPROVING').map(d => ({ x: d.sigap_total_score, y: d.stunting_2024 })), backgroundColor: plotRiskColors.IMPROVING, pointRadius: 6, pointHoverRadius: 8 },
-                    { label: 'Membaik (Success)', data: sigapData.filter(d => d.sigap_risk_category === 'SUCCESS').map(d => ({ x: d.sigap_total_score, y: d.stunting_2024 })), backgroundColor: plotRiskColors.SUCCESS, pointRadius: 6, pointHoverRadius: 8 },
+                    { label: 'Kritis', data: sigapData.filter(d => d.sigap_risk_category === 'HIGH').map(d => ({ x: d.sigap_total_score, y: d.stunting_2024 })), backgroundColor: plotRiskColors.HIGH, pointRadius: 6, pointHoverRadius: 8 },
+                    { label: 'Tinggi', data: sigapData.filter(d => d.sigap_risk_category === 'IMPROVING').map(d => ({ x: d.sigap_total_score, y: d.stunting_2024 })), backgroundColor: plotRiskColors.IMPROVING, pointRadius: 6, pointHoverRadius: 8 },
+                    { label: 'Membaik', data: sigapData.filter(d => d.sigap_risk_category === 'SUCCESS').map(d => ({ x: d.sigap_total_score, y: d.stunting_2024 })), backgroundColor: plotRiskColors.SUCCESS, pointRadius: 6, pointHoverRadius: 8 },
                 ];
                 
                 let n = 0, sx = 0, sy = 0, sxy = 0, sx2 = 0;
