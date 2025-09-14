@@ -67,6 +67,7 @@
             display: flex;
             align-items: center;
             text-align: center;
+            padding-top: 80px; /* space for navbar */
         }
         #header h1 {
             font-size: 80px;
@@ -84,29 +85,32 @@
             font-weight: 500;
         }
         
-        .top-bar {
-            background: transparent;
-            width: 100%;
-            padding: 10px 0;
-            position: absolute;
-            z-index: 999;
-            transition: all 0.3s ease;
-        }
-        .top-bar.fixed {
-            position: fixed;
+        .navbar-custom {
             background: rgba(255,255,255,0.9);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             -webkit-backdrop-filter: blur(8px);
             backdrop-filter: blur(8px);
+            padding: 10px 0;
+            border: none;
         }
-        
-        .navbar-brand {
+        .navbar-custom .navbar-brand {
             font-size: 24px;
             font-weight: 800;
             color: #0f172a !important;
         }
-        .navbar-brand span {
+        .navbar-custom .navbar-brand span {
             color: #10b981;
+        }
+        .navbar-custom .nav li a {
+            color: #475569;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        .navbar-custom .nav li a:hover,
+        .navbar-custom .nav li.active a {
+            color: #0f172a;
+            background: transparent;
         }
         
         .stat-card {
@@ -148,64 +152,31 @@
             font-size: 20px;
             margin-top: 0;
         }
-
-        .overlay { 
-            position: fixed; 
-            width: 100%; 
-            height: 100%; 
-            top: 0; 
-            left: 0; 
-            background: rgba(15, 23, 42, 0.95); 
-            z-index: 1000; 
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0s 0.3s;
-        }
-        .overlay.open {
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 0.3s ease;
-        }
-        .overlay .overlay-close { 
-            width: 40px; 
-            height: 40px; 
-            position: absolute; 
-            right: 20px; 
-            top: 20px; 
-            overflow: hidden; 
-            border: none; 
-            background: #10b981; 
-            color: #fff; 
-            font-size: 24px; 
-        }
-        .overlay nav { text-align: center; position: relative; top: 50%; height: 60%; transform: translateY(-50%); }
-        .overlay ul { list-style: none; padding: 0; margin: 0 auto; display: inline-block; height: 100%; position: relative; }
-        .overlay ul li { display: block; height: 20%; min-height: 54px; }
-        .overlay ul li a { font-size: 32px; font-weight: 600; display: block; color: #fff; transition: color 0.2s; }
-        .overlay ul li a:hover, .overlay ul li a:focus { color: #10b981; }
     </style>
 </head>
 
-<body>
-    <section id="header" class="header">
-        <div class="top-bar">
-            <div class="container">
-                <div class="navigation">
-                    <div class="row">
-                        <div class="col-md-11 col-xs-10">
-                            <a href="#header" class="navbar-brand"><span>SI</span>GAP</a>
-                        </div>
-                        <div class="col-md-1 col-xs-2">
-                            <p class="nav-button">
-                                <button id="trigger-overlay" type="button">
-                                    <i class="fa fa-bars"></i>
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+<body data-spy="scroll" data-target=".navbar-custom">
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#header"><span>SI</span>GAP</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-main-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#problem">Pendahuluan</a></li>
+                    <li><a href="#method">Metodologi</a></li>
+                    <li><a href="#results-map">Hasil</a></li>
+                    <li><a href="#conclusion">Kesimpulan</a></li>
+                </ul>
             </div>
         </div>
+    </nav>
+
+    <header id="header" class="header">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -216,19 +187,7 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <div class="overlay">
-        <button type="button" class="overlay-close"><i class="fa fa-times"></i></button>
-        <nav>
-            <ul>
-                <li><a href="#problem">Pendahuluan</a></li>
-                <li><a href="#method">Metodologi</a></li>
-                <li><a href="#results">Hasil</a></li>
-                <li><a href="#conclusion">Kesimpulan</a></li>
-            </ul>
-        </nav>
-    </div>
+    </header>
 
     <section id="problem" class="section">
         <div class="container">
@@ -299,34 +258,56 @@
         </div>
     </section>
 
-    <section id="results" class="section">
+    <section id="results-map" class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="wow fadeInDown">Hasil Penelitian</h2>
+                <h2 class="wow fadeInDown">Hasil: Peta Risiko SIGAP</h2>
+                <p class="wow fadeInDown">Analisis SIGAP menghasilkan peta tindakan yang mengarahkan prioritas intervensi ke wilayah paling membutuhkan.</p>
             </div>
-            <div class="row" style="margin-bottom: 60px;">
+            <div class="row">
                 <div class="col-md-12 text-center wow fadeInUp">
-                    <h3>Peta Risiko SIGAP</h3>
-                    <p style="color: #64748b;">Analisis SIGAP menghasilkan peta tindakan yang mengarahkan prioritas intervensi ke wilayah paling membutuhkan.</p>
                     <img src="https://raw.githubusercontent.com/fazelahmd/Sigap/main/2_Peta_Risiko_SIGAP_AbbottRed_Labeled.jpeg" alt="Peta Risiko SIGAP" class="img-responsive" style="border-radius:12px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); margin-top:20px;">
                 </div>
             </div>
-             <div class="row" style="margin-bottom: 60px;">
-                <div class="col-md-12 text-center wow fadeInUp">
-                    <h3>Dinamika Penurunan Stunting</h3>
-                    <p style="color: #64748b;">Garis <strong style="color:#10b981">hijau putus-putus</strong> menunjukkan tren penurunan rata-rata provinsi yang impresif.</p>
+        </div>
+    </section>
+
+    <section id="results-trend" class="section" style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="wow fadeInDown">Hasil: Dinamika Penurunan Stunting</h2>
+                <p class="wow fadeInDown">Garis <strong style="color:#10b981">hijau putus-putus</strong> menunjukkan tren penurunan rata-rata provinsi yang impresif, sementara garis abu-abu adalah jejak unik setiap daerah.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-12 wow fadeInUp">
                     <div style="height:450px; margin-top:20px;"><canvas id="trendLineChart"></canvas></div>
                 </div>
             </div>
+        </div>
+    </section>
+    
+    <section id="results-distribution" class="section">
+        <div class="container">
+            <div class="section-header">
+                 <h2 class="wow fadeInDown">Hasil: Distribusi Kategori Risiko</h2>
+                 <p class="wow fadeInDown">Grafik ini menyajikan potret sebaran risiko di Jawa Timur. Mayoritas wilayah berada di jalur yang positif, namun masih terdapat 7 wilayah yang terkategori Kritis, menandakan perlunya intervensi darurat.</p>
+            </div>
             <div class="row">
-                <div class="col-md-6 text-center wow fadeInUp">
-                    <h3>Distribusi Kategori Risiko</h3>
-                    <p style="color: #64748b;">Sebaran 38 daerah sesuai kategori risiko yang Anda berikan.</p>
+                 <div class="col-md-8 col-md-offset-2 wow fadeInUp">
                     <div style="height:400px; margin-top:20px;"><canvas id="categoryBarChart"></canvas></div>
                 </div>
-                <div class="col-md-6 text-center wow fadeInUp" data-wow-delay="0.1s">
-                     <h3>Validasi Model ($r=0,84$)</h3>
-                    <p style="color: #64748b;">Korelasi kuat membuktikan akurasi prediksi SIGAP.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="results-validation" class="section" style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="wow fadeInDown">Hasil: Validasi Model ($r=0,84$)</h2>
+                <p class="wow fadeInDown">Keandalan model SIGAP divalidasi secara statistik. Korelasi yang sangat kuat ($r=0,84$) antara skor risiko dan prevalensi stunting aktual membuktikan bahwa SIGAP adalah instrumen prediktif yang akurat dan dapat diandalkan.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 wow fadeInUp">
                     <div style="height:400px; margin-top:20px;"><canvas id="correlationScatterPlot"></canvas></div>
                 </div>
             </div>
@@ -358,45 +339,32 @@
         const sigapFullData = [{"nama_wilayah":"Bangkalan","stunting_2018":41.97,"stunting_2019":23.3,"stunting_2021":38.9,"stunting_2022":26.2,"stunting_2023":10.2,"stunting_2024":17.6},{"nama_wilayah":"Banyuwangi","stunting_2018":32.01,"stunting_2019":23.5,"stunting_2021":20.1,"stunting_2022":18.1,"stunting_2023":21.9,"stunting_2024":17.8},{"nama_wilayah":"Blitar","stunting_2018":27.36,"stunting_2019":25.4,"stunting_2021":14.5,"stunting_2022":14.3,"stunting_2023":20.3,"stunting_2024":11.2},{"nama_wilayah":"Bojonegoro","stunting_2018":34.91,"stunting_2019":37.4,"stunting_2021":23.9,"stunting_2022":24.3,"stunting_2023":14.1,"stunting_2024":15.2},{"nama_wilayah":"Bondowoso","stunting_2018":37.98,"stunting_2019":37.9,"stunting_2021":37.0,"stunting_2022":32.0,"stunting_2023":15.4,"stunting_2024":30.4},{"nama_wilayah":"Gresik","stunting_2018":38.51,"stunting_2019":32.1,"stunting_2021":23.0,"stunting_2022":34.9,"stunting_2023":18.0,"stunting_2024":17.2},{"nama_wilayah":"Jember","stunting_2018":29.78,"stunting_2019":24.3,"stunting_2021":21.0,"stunting_2022":22.1,"stunting_2023":29.7,"stunting_2024":7.9},{"nama_wilayah":"Jombang","stunting_2018":29.36,"stunting_2019":26.6,"stunting_2021":18.0,"stunting_2022":21.6,"stunting_2023":18.0,"stunting_2024":24.5},{"nama_wilayah":"Kediri","stunting_2018":28.33,"stunting_2019":28.1,"stunting_2021":15.0,"stunting_2022":25.2,"stunting_2023":23.1,"stunting_2024":11.4},{"nama_wilayah":"Kota Batu","stunting_2018":34.62,"stunting_2019":24.7,"stunting_2021":12.9,"stunting_2022":12.8,"stunting_2023":17.0,"stunting_2024":17.6},{"nama_wilayah":"Kota Blitar","stunting_2018":29.06,"stunting_2019":23.9,"stunting_2021":12.4,"stunting_2022":14.3,"stunting_2023":18.6,"stunting_2024":11.8},{"nama_wilayah":"Kota Kediri","stunting_2018":23.42,"stunting_2019":13.7,"stunting_2021":6.9,"stunting_2022":9.7,"stunting_2023":12.8,"stunting_2024":22.8},{"nama_wilayah":"Kota Madiun","stunting_2018":20.86,"stunting_2019":10.0,"stunting_2021":19.0,"stunting_2022":8.4,"stunting_2023":11.0,"stunting_2024":18.3},{"nama_wilayah":"Kota Malang","stunting_2018":34.48,"stunting_2019":35.6,"stunting_2021":28.9,"stunting_2022":27.5,"stunting_2023":31.8,"stunting_2024":6.9},{"nama_wilayah":"Kota Mojokerto","stunting_2018":30.02,"stunting_2019":27.2,"stunting_2021":20.5,"stunting_2022":23.8,"stunting_2023":11.7,"stunting_2024":23.4},{"nama_wilayah":"Kota Pasuruan","stunting_2018":28.57,"stunting_2019":14.2,"stunting_2021":22.1,"stunting_2022":23.0,"stunting_2023":6.9,"stunting_2024":12.1},{"nama_wilayah":"Kota Probolinggo","stunting_2018":34.01,"stunting_2019":25.3,"stunting_2021":25.7,"stunting_2022":25.0,"stunting_2023":23.4,"stunting_2024":10.3},{"nama_wilayah":"Kota Surabaya","stunting_2018":32.45,"stunting_2019":22.0,"stunting_2021":27.4,"stunting_2022":20.0,"stunting_2023":12.1,"stunting_2024":23.3},{"nama_wilayah":"Lamongan","stunting_2018":31.74,"stunting_2019":16.0,"stunting_2021":25.3,"stunting_2022":16.4,"stunting_2023":10.3,"stunting_2024":15.2},{"nama_wilayah":"Lumajang","stunting_2018":29.9,"stunting_2019":25.3,"stunting_2021":16.2,"stunting_2022":20.6,"stunting_2023":23.3,"stunting_2024":22.8},{"nama_wilayah":"Madiun","stunting_2018":26.95,"stunting_2019":20.6,"stunting_2021":23.3,"stunting_2022":14.2,"stunting_2023":15.2,"stunting_2024":11.4},{"nama_wilayah":"Magetan","stunting_2018":40.47,"stunting_2019":29.6,"stunting_2021":21.5,"stunting_2022":17.3,"stunting_2023":22.8,"stunting_2024":11.7},{"nama_wilayah":"Malang","stunting_2018":26.34,"stunting_2019":26.5,"stunting_2021":23.7,"stunting_2022":16.1,"stunting_2023":11.4,"stunting_2024":18.9},{"nama_wilayah":"Mojokerto","stunting_2018":44.12,"stunting_2019":25.9,"stunting_2021":29.0,"stunting_2022":21.6,"stunting_2023":11.7,"stunting_2024":10.6},{"nama_wilayah":"Nganjuk","stunting_2018":39.7,"stunting_2019":33.0,"stunting_2021":18.1,"stunting_2022":19.5,"stunting_2023":18.9,"stunting_2024":11.2},{"nama_wilayah":"Ngawi","stunting_2018":30.5,"stunting_2019":28.6,"stunting_2021":15.1,"stunting_2022":24.9,"stunting_2023":10.6,"stunting_2024":11.3},{"nama_wilayah":"Pacitan","stunting_2018":39.9,"stunting_2019":30.6,"stunting_2021":22.7,"stunting_2022":30.9,"stunting_2023":11.2,"stunting_2024":6.7},{"nama_wilayah":"Pamekasan","stunting_2018":47.93,"stunting_2019":53.9,"stunting_2021":38.7,"stunting_2022":17.3,"stunting_2023":11.3,"stunting_2024":13.7},{"nama_wilayah":"Pasuruan","stunting_2018":27.05,"stunting_2019":34.6,"stunting_2021":21.5,"stunting_2022":6.9,"stunting_2023":6.7,"stunting_2024":16.1},{"nama_wilayah":"Ponorogo","stunting_2018":30.66,"stunting_2019":8.9,"stunting_2021":20.0,"stunting_2022":16.1,"stunting_2023":13.7,"stunting_2024":14.1},{"nama_wilayah":"Probolinggo","stunting_2018":33.0,"stunting_2019":14.1,"stunting_2021":23.3,"stunting_2022":14.1,"stunting_2023":16.1,"stunting_2024":8.4},{"nama_wilayah":"Sampang","stunting_2018":34.13,"stunting_2019":16.1,"stunting_2021":17.2,"stunting_2022":8.4,"stunting_2023":14.1,"stunting_2024":4.1},{"nama_wilayah":"Sidoarjo","stunting_2018":39.89,"stunting_2019":14.1,"stunting_2021":14.8,"stunting_2022":4.1,"stunting_2023":8.4,"stunting_2024":16.7},{"nama_wilayah":"Situbondo","stunting_2018":30.76,"stunting_2019":8.4,"stunting_2021":23.7,"stunting_2022":16.7,"stunting_2023":4.1,"stunting_2024":15.8},{"nama_wilayah":"Sumenep","stunting_2018":26.17,"stunting_2019":4.1,"stunting_2021":29.0,"stunting_2022":15.8,"stunting_2023":16.7,"stunting_2024":21.5},{"nama_wilayah":"Trenggalek","stunting_2018":null,"stunting_2019":16.7,"stunting_2021":25.1,"stunting_2022":21.5,"stunting_2023":15.8,"stunting_2024":17.8},{"nama_wilayah":"Tuban","stunting_2018":null,"stunting_2019":15.8,"stunting_2021":23.3,"stunting_2022":17.8,"stunting_2023":21.5,"stunting_2024":null},{"nama_wilayah":"Tulungagung","stunting_2018":null,"stunting_2019":21.5,"stunting_2021":null,"stunting_2022":null,"stunting_2023":17.8,"stunting_2024":null}];
 
         // Custom JS for template interactivity
-        (function() {
-            var triggerBttn = document.getElementById('trigger-overlay');
-            var overlay = document.querySelector('div.overlay');
-            var closeBttn = overlay.querySelector('button.overlay-close');
-            var overlayLinks = overlay.querySelectorAll('nav ul li a');
-
-            function toggleOverlay() {
-                overlay.classList.toggle('open');
-            }
-
-            if(triggerBttn) triggerBttn.addEventListener('click', toggleOverlay);
-            if(closeBttn) closeBttn.addEventListener('click', toggleOverlay);
-            overlayLinks.forEach(function(link) {
-                link.addEventListener('click', toggleOverlay);
-            });
-        })();
-
         $(document).ready(function(){
-          new WOW().init();
-          
-          var kawa = $('.top-bar');
-          function scroll() {
-             if ($(window).scrollTop() > 100) {
-                kawa.addClass('fixed');
-             } else {
-                kawa.removeClass('fixed');
-             }
-          }
-          document.onscroll = scroll;
+            new WOW().init();
+            
+            // Fixed navigation
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > 100) {
+                    $('.navbar-custom').addClass('fixed');
+                } else {
+                    $('.navbar-custom').removeClass('fixed');
+                }
+            });
 
-          $('a[href^="#"]').on('click', function(event) {
-            var target = $(this.getAttribute('href'));
-            if( target.length ) {
-                event.preventDefault();
-                $('html, body').stop().animate({
-                    scrollTop: target.offset().top - 70
-                }, 1000);
-            }
-          });
+            // Page scroll
+            $('a.page-scroll').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if( target.length ) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 70
+                    }, 1000);
+                }
+            });
+
+            $('.navbar-collapse ul li a').click(function() {
+                $('.navbar-toggle:visible').click();
+            });
 
             // --- Charts ---
             const chartTextColorDark = '#1f2937';
